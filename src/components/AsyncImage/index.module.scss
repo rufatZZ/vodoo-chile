@@ -1,0 +1,87 @@
+.ImageWrapper {
+  color: white;
+  position: relative;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 2px 2px 1px rgb(0 0 0/20%);
+  overflow: hidden;
+}
+
+.ImageBox {
+  display: block;
+  min-width: 100%;
+  width: 90vw;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+
+  @media (min-width: 768px) {
+    & {
+      max-width: 300px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    & {
+      max-width: 350px;
+    }
+  }
+}
+
+.ImageOverlay,
+.ImageMetaContent,
+.ImageMetaButton {
+  position: absolute;
+  display: none;
+
+  :hover > & {
+    display: flex;
+  }
+}
+
+.ImageMetaButton,
+.ImageMetaContent {
+  padding: 5px 10px;
+}
+
+.ImageOverlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ImageMetaContent {
+  max-width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+}
+
+.ImageMetaContent {
+  &:has(b, i) {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 2px #000;
+  }
+
+  & > i {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+}
+
+.ImageMetaButton {
+  top: 0;
+  right: 0;
+  transition: all 0.2s;
+  font-size: 12px;
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}
