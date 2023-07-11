@@ -39,6 +39,11 @@ export const Gallery: React.FC = () => {
           <AsyncImage imageData={photo} key={crypto.randomUUID()} />
         ))}
       </div>
+      <div className={styles.GalleryMeta}>
+        {isLoading && <div>Loading...</div>}
+        {isLast && <div>Reached to the end</div>}
+        {!isLoading && !isLast && <div ref={loadMoreRef}>Load more</div>}
+      </div>
     </div>
   );
 };
